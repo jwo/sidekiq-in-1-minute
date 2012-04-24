@@ -8,10 +8,10 @@ A simple example Sidekiq install in ruby only
 Steps (after you clone and bundle)
 ----------------------------------
 
-1. Run the sidekiq worker
+1. Run the sidekiq worker and tell it to load the worker class
 
 ```
-bundle exec sidekiq
+bundle exec sidekiq -r ./worker.rb
 ```
 
 2. Run the code
@@ -45,6 +45,9 @@ In Rails 3
 ```
 require 'sidekiq/capistrano'
 ```
+
+And that's LITERALLY it
+
 
 Prereqs
 -------
