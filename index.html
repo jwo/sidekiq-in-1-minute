@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
+
+    <title>Sidekiq-in-1-minute by jwo</title>
+  </head>
+
+  <body>
+
+    <header>
+      <div class="container">
+        <h1>Sidekiq-in-1-minute</h1>
+        <h2>1 Minute Sidekiq lighting code -- railsconf2012</h2>
+
+        <section id="downloads">
+          <a href="https://github.com/jwo/sidekiq-in-1-minute/zipball/master" class="btn">Download as .zip</a>
+          <a href="https://github.com/jwo/sidekiq-in-1-minute/tarball/master" class="btn">Download as .tar.gz</a>
+          <a href="https://github.com/jwo/sidekiq-in-1-minute" class="btn btn-github"><span class="icon"></span>View on GitHub</a>
+        </section>
+      </div>
+    </header>
+
+    <div class="container">
+      <section id="main_content">
+        <h1>Sidekiq in 1 minute</h1>
+
+<p>1 Minute Sidekiq lighting code -- railsconf2012 A simple example Sidekiq install in ruby only</p>
+
+<p><strong>For more information, you should check out <a href="http://mperham.github.com/sidekiq/">http://mperham.github.com/sidekiq/</a></strong></p>
+
+<h2>Steps (after you clone and bundle)</h2>
+
+<ol>
+<li>
+<p>Run the sidekiq worker</p>
+
+<pre><code>bundle exec sidekiq
+</code></pre>
+</li>
+<li>
+<p>Run the code</p>
+
+<pre><code>ruby demo
+</code></pre>
+</li>
+</ol><h2>On Your Own</h2>
+
+<pre><code># In your code
+DoingIt.perform_async
+
+# The worker
+class DoingIt
+  include Sidekiq::Worker
+  def perform
+    puts "the stuff"
+  end
+end
+</code></pre>
+
+<h2>In Rails 3</h2>
+
+<ol>
+<li>Add to bundler</li>
+<li>Add to capistrano
+<code>
+require 'sidekiq/capistrano'
+</code>
+</li>
+</ol><h2>Prereqs</h2>
+
+<ol>
+<li>Have Redis installed and running (<code>brew install redis</code>)</li>
+<li>Ruby 1.9 </li>
+</ol>
+      </section>
+    </div>
+
+    
+  </body>
+</html>
