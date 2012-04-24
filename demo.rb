@@ -5,9 +5,13 @@ require_relative "worker"
 
 class YourStuff
 
+	def initialize
+		@name = %w(bob jim carl).sample
+	end
+
 	def just_do_it
 		puts "#{Time.now} - START"
-		DoingIt.perform_async
+		DoingIt.perform_async(@name)
 		puts "#{Time.now} - END"
 	end
 
